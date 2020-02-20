@@ -1,0 +1,192 @@
+* {
+  box-sizing: border-box;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+@font-face {
+  font-family: "王漢宗細園繁體";
+  src: url(../font/wt006.ttf);
+  unicode-range: U+4E00-9FFF;
+}
+
+html, body {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  font-family: "王漢宗細園繁體", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.loading {
+  background-color: rgb(0, 0, 0, 1);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 100000;
+}
+
+.hidden {
+  display: none;
+}
+
+#maskMap {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+}
+
+#marker, #marker2, #marker3, #marker4 {
+  display: none;
+}
+
+.menuCity {
+  widith: 60px;
+  height: 60px;
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  list-style-type: none;
+  z-index: 500;
+}
+
+#menuIcon {
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  z-index: 500;
+}
+
+#selectCity {
+  width: 240px;
+  position: absolute;
+  right: 0px;
+  top: 80px;
+  z-index: 500;
+  opacity: 1;
+}
+
+#selectTown {
+  width: 240px;
+  position: absolute;
+  right: 0px;
+  top: 450px;
+  z-index: 500;
+  opacity: 1;
+}
+
+#menuBg {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  z-index: 500;
+  opacity: 1;
+}
+
+#menuBg2 {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  z-index: 500;
+  opacity: 1;
+}
+
+#selectCity, #selectTown {
+  margin: 0 auto;
+  height: 360px;
+  overflow-y: scroll;
+  opacity: 1;
+}
+
+@media screen and (max-width: 767px) {
+  #selectCity, #selectTown {
+    height: 40vh;
+  }
+
+  #selectTown {
+    top: calc(40vh + 90px);
+  }
+}
+
+#selectCity li, #selectTown li {
+  display: blick;
+  line-height: 50px;
+  text-align: center;
+  width: 160px;
+  height: 50px;
+  margin: 20px auto;
+  border: 2px solid aliceblue;
+  list-style-type: none;
+  color: aliceblue;
+  position: relative;
+  transition: all 500ms;
+  z-index: 500;
+  opacity: 1;
+}
+
+#selectCity li div, #selectTown li div {
+  width: 160px;
+  height: 50px;
+  margin: 10px auto;
+  border: 2px solid aliceblue;
+  top: -16px;
+  left: 3px;
+  position: absolute;
+  transition: all 500ms;
+  z-index: 500;
+  opacity: 1;
+}
+
+#selectCity li:hover, #selectTown li:hover {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid aliceblue;
+}
+
+#selectCity li:hover div, #selectTown li:hover div {
+  top: -11px;
+  left: -2px;
+  box-shadow: 0px 0px 1px #fff;
+}
+
+#pharmacy {
+  position: absolute;
+  top: 80px;
+  left: -300px;
+  z-index: 500;
+  height: 1080px;
+  max-height: 100%;
+  overflow-y: scroll;
+  transition: all 300ms linear;
+}
+
+#pharmacy li {
+  cursor: pointer;
+}
+
+#pharmacy li svg {
+  transition: all 300ms linear;
+}
+
+#closePharmacy {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  z-index: 500;
+}
+
+@media screen and (max-width: 767px) {
+  #pharmacy {
+    height: 80vh;
+  }
+
+}

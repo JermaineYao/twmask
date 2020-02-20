@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>台灣口罩地圖資訊</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="CSS/reset.css">
+  <link rel="stylesheet" href="javascript/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+  <script src="javascript/leaflet-providers.js"></script>
+  <link rel="stylesheet" href="CSS/mask.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.min.js"></script>
+  <link rel="shortcut icon" href="image/logo.png">
+</style>
+</head>
+
+<body>
+  <div class="loading">
+  </div>
+
+  <div id="content">
+    <div id="maskMap"></div>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" opacity="0">
+      <defs>
+        <filter id="glass" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+          <feGaussianBlur stdDeviation="50"></feGaussianBlur>
+        </filter>
+        <filter id="glass2" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+          <feGaussianBlur stdDeviation="12"></feGaussianBlur>
+        </filter>
+        <filter id="thicker">
+          <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="stroke"></feMorphology>
+          <feFlood flood-color="rgba(33, 30, 85, 0.8)" result="bgFill"></feFlood>
+          <feComposite in="bgFill" in2="stroke" operator="in"></feComposite>
+          <feComposite in="SourceGraphic"></feComposite>
+        </filter>
+        <clipPath id="cp">
+          <path x="0" y="0" d="M0 0 L300 0 L300 180 L165 180 L150 190 L135 180 L0 180 Z"></path>
+        </clipPath>
+      </defs>
+    </svg>
+
+    <svg class="menuIcon menuCity" width="60" height="60" xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <rect x="0" y="0" width="60" height="60" fill="rgba(33, 30, 85, 0.8)"  filter="url(#glass2)"></rect>
+      <path id="cross1" d="M15 20 L50 20" stroke-linecap="round" stroke="#fff" stroke-width="4"></path>
+      <path id="cross2" d="M15 30 L50 30" stroke-linecap="round" stroke="#fff" stroke-width="4"></path>
+      <path id="cross3" d="M15 40 L50 40" stroke-linecap="round" stroke="#fff" stroke-width="4"></path>
+    </svg>
+
+    <ul id="selectCity">
+      <svg height="1560" width="240" id="menuBg" xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <rect x="0" y="0" width="240" height="1560" fill="rgba(33, 30, 85, 0.8)" filter="url(#glass)"></rect>
+      </svg>
+    </ul>
+
+    <ul id="selectTown">
+      <svg id="menuBg2" width="240" xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <rect x="0" y="0" width="240" fill="rgba(33, 30, 85, 0.8)" filter="url(#glass)"></rect>
+      </svg>
+    </ul>
+
+    <div id="closePharmacy">
+      <svg width="0" height="60" xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <rect x="0" y="0" width="60" height="60" fill="rgba(33, 30, 85, 0.8)"  filter="url(#glass2)"></rect>
+        <text id="open" x="15" y="38" fill="#fff" font-size="30" opacity="1">藥</text>
+        <text id="close" x="15" y="38" fill="#fff" font-size="30" opacity="0">收</text>
+      </svg>
+    </div>
+
+    <ul id="pharmacy"></ul>
+  </div>
+
+  <canvas id="marker"></canvas>
+  <canvas id="marker2"></canvas>
+  <canvas id="marker3"></canvas>
+  <canvas id="marker4"></canvas>
+
+  <script type="text/javascript" src="javascript/mask.js"></script>
+</body>
+
+</html>
