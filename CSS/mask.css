@@ -21,6 +21,7 @@ html, body {
   font-family: "王漢宗細園繁體", sans-serif;
   font-weight: 300;
   font-style: normal;
+  overflow: hidden;
 }
 
 .loading {
@@ -184,9 +185,8 @@ html, body {
   z-index: 500;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   #pharmacy {
-    height: 80vh;
+    height: 60vh;
   }
-
 }

@@ -1,11 +1,3 @@
-/*----- loading -----*/
-window.addEventListener("load", function () {
-  var page = document.querySelector('#content');
-  var loader = document.querySelector(".loading");
-  page.style.display = 'block';
-  loader.className += " hidden"; // class "loader hidden"
-});
-
 /*----- 劃出 canvas marker -----*/
 let canvas = document.getElementById("marker");
 let canvas2 = document.getElementById("marker2");
@@ -362,4 +354,4 @@ d3.select("#closePharmacy").on("click", function () {
     d3.select("#close").transition().duration(300).attr("opacity", "1");
     d3.select("#open").transition().duration(300).attr("opacity", "0");
   }
-})
+});
